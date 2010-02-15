@@ -47,11 +47,11 @@ static const CGFloat BRSearchMenuYOffset = 25.0;
 #pragma mark Properties
 
 @synthesize searchMenuTemplate = _searchMenuTemplate;
-@synthesize searchMenuDelegate = _searchMenuDelegate;
+@synthesize searchFieldDataSource = _searchFieldDataSource;
 
--(void)setSearchMenuDelegate:(id<BRSearchFieldDelegate>)searchMenuDelegate
+-(void)setSearchFieldDataSource:(id<BRSearchFieldDataSource>)searchFieldDataSource
 {
-	_searchMenuDelegate = searchMenuDelegate;
+	_searchFieldDataSource = searchFieldDataSource;
 	if (_menuWindow != nil) {
 		[_menuWindow.menuView markMenuAsDirty];
 	}

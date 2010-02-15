@@ -280,7 +280,7 @@ static const NSInteger BRSearchMenuSearchItem = -1;
 {
 	NSArray* menuItems = nil;
 	if ([menuItem tag] != 0) {
-		NSArray* titles  = [_searchField.searchMenuDelegate searchField:_searchField valuesForTag:[menuItem tag]];
+		NSArray* titles  = [_searchField.searchFieldDataSource searchField:_searchField valuesForTag:[menuItem tag]];
 		if (titles) {
 			NSMutableArray* mutableItems = [NSMutableArray array];
 			if ([titles count] > 0) {
@@ -292,8 +292,8 @@ static const NSInteger BRSearchMenuSearchItem = -1;
 					[item setIndentationLevel:[menuItem indentationLevel]];
 					[mutableItems addObject:item];
 				}
-			} else if ([_searchField.searchMenuDelegate respondsToSelector:@selector(searchField:placeholderForTag:)]) {
-				NSString* placeholder = [_searchField.searchMenuDelegate searchField:_searchField placeholderForTag:[menuItem tag]];
+			} else if ([_searchField.searchFieldDataSource respondsToSelector:@selector(searchField:placeholderForTag:)]) {
+				NSString* placeholder = [_searchField.searchFieldDataSource searchField:_searchField placeholderForTag:[menuItem tag]];
 				if (placeholder) {
 					// use the placeholder
 					NSMenuItem* item = [[[NSMenuItem alloc] init] autorelease];

@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "SearchField.h"
 
-@interface BRSearchFieldAppDelegate : NSObject <NSApplicationDelegate, BRSearchFieldDelegate> {
+@interface BRSearchFieldAppDelegate : NSObject <NSApplicationDelegate, BRSearchFieldDataSource> {
     NSWindow *window;
 	BRSearchField* _searchField;
 	NSMutableArray* _recentSearches;

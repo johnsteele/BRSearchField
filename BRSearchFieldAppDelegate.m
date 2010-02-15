@@ -17,7 +17,7 @@
 		@"done", @"donuts", @"doe, a deer", nil];
 
 	NSAssert(self.searchField != nil, @"searchField outlet not set");
-	self.searchField.searchMenuDelegate = self;
+	self.searchField.searchFieldDataSource = self;
 	NSMenu* menu = [[[NSMenu alloc] init] autorelease];
 	[menu setFont:[NSFont menuFontOfSize:12.0]];
 

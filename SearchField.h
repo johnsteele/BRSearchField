@@ -12,7 +12,7 @@
 @class BRSearchField;
 @class BRSearchFieldTextView;
 
-@protocol BRSearchFieldDelegate<NSObject>
+@protocol BRSearchFieldDataSource<NSObject>
 // return an array of strings that should replace the menu item with the given tag
 // or nil if no replacment should be made.
 -(NSArray*)searchField:(BRSearchField*)searchField valuesForTag:(NSInteger)tag;
@@ -25,7 +25,7 @@
 @interface BRSearchField : NSTextField {
 	NSMenu* _searchMenuTemplate;
 	BRSearchMenuWindow* _menuWindow;
-	id<BRSearchFieldDelegate> _searchMenuDelegate;
+	id<BRSearchFieldDataSource> _searchFieldDataSource;
 	NSString* _typedFieldValue;
 	BOOL _menuChangingFieldValue;
 	BOOL _protectOpenMenu;
@@ -34,7 +34,7 @@
 	BOOL _handleMenuHighlight;
 }
 
-@property (assign) IBOutlet id<BRSearchFieldDelegate> searchMenuDelegate;
+@property (assign) IBOutlet id<BRSearchFieldDataSource> searchFieldDataSource;
 @property (retain) IBOutlet NSMenu* searchMenuTemplate;
 @property (readonly) BRSearchFieldTextView* fieldEditor;
 
